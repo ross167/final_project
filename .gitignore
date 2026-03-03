@@ -7,3 +7,4 @@ __pycache__/
 
 data/viz/*.csv
 data/viz/.gitkeep
+data/raw/MetObjects.csv
