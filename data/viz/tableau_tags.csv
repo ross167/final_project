@@ -1,0 +1,742 @@
+tag_list,mean,count
+Aaron,1.0,1
+Abel,0.5,2
+Abraham,0.4,5
+Abraham Lincoln,0.0,1
+Abstraction,0.032467532467532464,308
+Accordions,0.0,3
+Acrobats,0.0,4
+Actaeon,1.0,1
+Actors,0.3125,16
+Actresses,0.0,1
+Adam,0.75,4
+Admirals,0.0,2
+Adonis,0.5,2
+Adoration of the Magi,0.7368421052631579,19
+Adoration of the Shepherds,0.6666666666666666,9
+Aeneas,1.0,2
+Aeneid,1.0,2
+Agony in the Garden,0.5,2
+Agriculture,1.0,1
+Ahasuerus,0.0,2
+Alexander The Great,0.5,2
+Allegory,0.36363636363636365,22
+Alligators,0.0,1
+Altars,0.6,5
+Amazons,1.0,1
+American Revolution,1.0,1
+Amoghasiddhi,0.0,2
+Amusement Parks,0.0,1
+Andromache,1.0,1
+Angels,0.5732484076433121,157
+Anger,0.0,2
+Animals,0.07575757575757576,66
+Annunciation,0.6538461538461539,26
+Apollo,0.5,6
+Apostles,0.5,10
+Apples,0.47058823529411764,34
+Aqueducts,0.6666666666666666,3
+Archangel Gabriel,0.6842105263157895,19
+Archery,0.0,2
+Arches,0.2,15
+Architects,1.0,1
+Architecture,0.0,8
+Argonauts,1.0,2
+Ariadne,0.0,3
+Armor,0.631578947368421,19
+Arms,0.0,1
+Army,0.0,5
+Arrows,0.0,3
+Artists,0.2857142857142857,28
+Assumption of the Virgin,0.3333333333333333,3
+Astrology,0.0,1
+Athena,0.0,1
+Athletes,0.5,2
+Autumn,0.14285714285714285,14
+Avalokiteshvara,0.0,15
+Axes,0.0,1
+Bacchantes,1.0,1
+Bacchus,0.2,5
+Bagpipes,0.5,2
+Bakers,1.0,1
+Balconies,0.6,5
+Ballet,0.8333333333333334,6
+Bamboo,0.06329113924050633,79
+Bananas,0.5,2
+Banquets,0.42857142857142855,7
+Baptism of Christ,1.0,4
+Barns,0.0,4
+Barrels,0.3333333333333333,3
+Baseball,0.0,1
+Basins,0.0,1
+Baskets,0.25,8
+Bathing,0.3333333333333333,15
+Bathsheba,1.0,2
+Bats,1.0,1
+Battles,0.1724137931034483,29
+Beaches,0.2608695652173913,23
+Bearing the Cross,0.8181818181818182,11
+Bears,0.1,10
+Bedrooms,0.5416666666666666,24
+Beds,0.3235294117647059,34
+Bees,0.14285714285714285,7
+Benches,0.3333333333333333,3
+Benjamin Franklin,0.5,2
+Bicycles,0.0,2
+Billiards,0.3333333333333333,3
+Birds,0.06006006006006006,333
+Birth,0.0,1
+Bishops,0.6,5
+Blacksmiths,1.0,1
+Boars,0.0,9
+Boats,0.19696969696969696,264
+Bodhisattvas,0.02586206896551724,116
+Books,0.375,48
+Bottles,0.23076923076923078,13
+Bow and Arrow,0.17391304347826086,23
+Bowls,0.0,4
+Boxes,0.5,2
+Boxing,0.3333333333333333,3
+Boys,0.25196850393700787,127
+Brahma,0.0,3
+Bread,0.5,12
+Bridges,0.15625,64
+Brooms,0.0,2
+Brushes,0.09090909090909091,11
+Bubbles,1.0,2
+Buddha,0.041666666666666664,96
+Buddhism,0.02120141342756184,283
+Buffalos,0.0,20
+Buildings,0.2230769230769231,130
+Bulls,0.18181818181818182,11
+Burials,0.0,2
+Butterflies,0.034482758620689655,29
+Cafe,0.0,2
+Cain,0.5,2
+Cakes,1.0,1
+Calendars,0.0,1
+Calligraphy,0.0,13
+Calypso,1.0,1
+Camels,0.09090909090909091,11
+Cameras,0.0,1
+Canals,0.6428571428571429,14
+Candles,0.75,4
+Candlesticks,0.5,2
+Cannons,0.0,1
+Caricature,0.0,1
+Carriages,0.0,13
+Cars,0.08333333333333333,12
+Carts,0.0625,16
+Castles,0.09090909090909091,11
+Cathedrals,0.6,5
+Cats,0.2553191489361702,47
+Caves,0.1111111111111111,9
+Cellos,0.0,1
+Cemeteries,0.3333333333333333,3
+Censers,0.0,1
+Centaurs,0.6,5
+Ceremony,0.3333333333333333,3
+Chairs,0.07407407407407407,27
+Chalices,0.0,2
+Chapels,0.0,2
+Chariots,0.23809523809523808,21
+Charles IX,1.0,1
+Cheese,0.0,1
+Chemistry,1.0,1
+Cherries,0.3333333333333333,3
+Chess,1.0,1
+Chests,0.0,1
+Chickens,0.0,11
+Children,0.2911392405063291,79
+Christ,0.627906976744186,172
+Christopher Columbus,1.0,1
+Churches,0.26666666666666666,30
+Circumcision,0.0,1
+Circus,0.2,5
+Cities,0.28378378378378377,74
+Cleopatra,1.0,2
+Clocks,0.0,9
+Cloisters,1.0,1
+Clothing,0.0,1
+Clouds,0.175,40
+Clowns,0.3333333333333333,3
+Coat of Arms,0.625,8
+Coffee,0.0,1
+Coffeepots,0.0,1
+Coffins,0.0,2
+Coins,1.0,1
+Columns,0.5555555555555556,9
+Contemplation,0.6666666666666666,3
+Cooking,0.6666666666666666,3
+Corn,0.0,2
+Coronation of the Virgin,0.8333333333333334,6
+Corpses,0.0,4
+Correspondence,0.0,1
+Costumes,1.0,1
+Couches,0.0,4
+Couples,0.2857142857142857,35
+Courtyards,0.0,1
+Cows,0.3582089552238806,67
+Crabs,0.07692307692307693,13
+Cradles,0.3333333333333333,3
+Cranes,0.0,33
+Crayfish,0.25,4
+Crocodiles,0.0,2
+Cross,0.6818181818181818,22
+Crowd,0.2,25
+Crowns,1.0,1
+Croziers,0.0,1
+Crucifixion,0.6153846153846154,52
+Crypts,0.0,1
+Cupid,0.625,16
+Cups,0.6666666666666666,3
+Cypresses,0.5,6
+Daily Life,1.0,1
+Daisies,0.0,1
+Dance,0.6666666666666666,3
+Dancers,0.16129032258064516,31
+Dancing,0.2,35
+Daoism,0.0,6
+David,0.3333333333333333,3
+Dawn,0.5,6
+Death,0.38095238095238093,21
+Death of the Virgin,0.6666666666666666,6
+Deer,0.1282051282051282,39
+Deities,0.02531645569620253,79
+Delilah,1.0,1
+Demeter,0.0,1
+Demons,0.07692307692307693,39
+Descent from the Cross,0.0,2
+Deserts,0.3333333333333333,3
+Desks,0.0,2
+Devil,0.6666666666666666,3
+Diana,0.7777777777777778,9
+Dining,0.3157894736842105,19
+Dining Rooms,0.5,2
+Diogenes,0.0,1
+Dishes,0.0,2
+Docks,0.0,5
+Doctors,0.0,3
+Dogs,0.37185929648241206,199
+Dolls,0.4,5
+Domes,0.0,2
+Don Quixote,0.0,2
+Donkeys,0.2857142857142857,28
+Doors,0.2,5
+Doorways,0.0,2
+Doves,0.5625,16
+Dragonflies,0.0,4
+Dragons,0.12195121951219512,41
+Dresses,0.0,2
+Dressing,0.0,4
+Drinking,0.23529411764705882,17
+Drinking Glasses,0.6,5
+Drums,0.25,8
+Drunkenness,0.3333333333333333,3
+Ducks,0.08333333333333333,24
+Durga,0.07142857142857142,14
+Eagles,0.14285714285714285,21
+Easels,0.08333333333333333,12
+Eating,0.5,6
+Eggplants,1.0,1
+Eggs,0.42857142857142855,7
+Elephants,0.04918032786885246,61
+Elizabeth I,0.0,1
+Emperors,0.0,8
+Entombment,0.5,4
+Esther,0.0,2
+Eurydice,0.0,1
+Eve,0.6666666666666666,6
+Evening,0.5294117647058824,17
+Ewers,0.0,1
+Execution,1.0,1
+Eyes,0.0,3
+Faces,0.0,8
+Factories,0.0,4
+Falcons,0.2222222222222222,9
+Family,0.3684210526315789,19
+Fans,0.037037037037037035,27
+Farmers,0.0,3
+Farms,0.45,20
+Fathers,0.3333333333333333,3
+Fauns,0.0,1
+Feathers,0.0,2
+Feet,0.0,3
+Female Nudes,0.2903225806451613,155
+Fences,0.0,4
+Fire,0.2777777777777778,18
+Firearms,0.0,3
+Fireplaces,0.5,2
+Fires,0.0,3
+Fireworks,0.0,2
+Fish,0.07042253521126761,71
+Fishing,0.1111111111111111,18
+Flagellation,1.0,5
+Flags,0.375,8
+Flight Into Egypt,0.6666666666666666,3
+Floods,0.0,1
+Flowers,0.10416666666666667,336
+Flutes,0.0,8
+Fog,0.0,1
+Food,0.5454545454545454,33
+Forests,0.37254901960784315,51
+Fortification,0.0,1
+Fountains,0.3125,16
+Foxes,0.2857142857142857,14
+Frogs,0.0,9
+Fruit,0.16279069767441862,86
+Funerals,0.25,4
+Furniture,0.0,2
+Galatea,0.0,1
+Gambling,1.0,1
+Games,0.16666666666666666,18
+Ganesha,0.0,4
+Gardeners,0.5,2
+Gardens,0.45161290322580644,62
+Garlands,0.25,4
+Gates,0.4,5
+Geese,0.05263157894736842,19
+Generals,0.0,3
+Genre Scene,0.0,4
+George Washington,0.0,1
+Gibbons,0.0,3
+Giraffes,0.0,1
+Girls,0.25,116
+Globes,0.4,5
+Goats,0.08333333333333333,12
+God the Father,0.75,8
+Goddess,0.16666666666666666,30
+Gods,0.36363636363636365,11
+Gourds,0.0,4
+Grapes,0.39473684210526316,38
+Greek Mythology,0.0,1
+Griffins,0.0,1
+Guitars,0.46153846153846156,13
+Hamlet,0.0,1
+Hammers,0.16666666666666666,6
+Hands,0.1,10
+Happiness,1.0,2
+Harbors,0.375,8
+Harps,0.42857142857142855,7
+Harpsichords,1.0,1
+Harvesting,0.0,3
+Hats,0.0,2
+Hawks,0.0,13
+Haystacks,0.8,5
+Heads,0.25,36
+Hearts,0.0,1
+Hell,0.3333333333333333,6
+Helmets,0.3333333333333333,3
+Hens,0.0,2
+Herbs,0.0,1
+Hercules,0.3333333333333333,3
+Hermes,0.0,1
+Herod,0.0,3
+Hills,0.2857142857142857,42
+Hinduism,0.045454545454545456,22
+Holofernes,0.75,4
+Holy Family,0.5652173913043478,23
+Hookah,0.0,11
+Horns,0.0,1
+Horses,0.19692307692307692,325
+Hourglass,0.0,2
+Houses,0.07317073170731707,82
+Human Figures,0.1566265060240964,83
+Hunting,0.32,25
+Ice,1.0,2
+Illness,0.0,4
+Incense Burners,0.0,1
+Industry,0.0,5
+Infants,0.288135593220339,59
+Inns,0.0,1
+Insects,0.030303030303030304,33
+Interiors,0.32,150
+Irons,0.5,4
+Jars,1.0,1
+Jason,1.0,1
+Jesus,0.6984126984126984,63
+Jewelry,0.5,2
+Joan of Arc,0.5,2
+Job,1.0,1
+Jockeys,0.0,5
+Joseph,0.36363636363636365,22
+Judas,0.0,1
+Judith,0.6,5
+Jugs,0.25,4
+Juno,0.5,2
+Jupiter,0.8,5
+Kettles,0.0,2
+Kings,0.1935483870967742,31
+Kitchens,0.4,5
+Knights,0.5,2
+Knitting,0.3333333333333333,3
+Knives,0.2,5
+Krishna,0.0,72
+Ladders,0.3333333333333333,6
+Lakes,0.1,20
+Lambs,0.6666666666666666,3
+Lamentation,0.6428571428571429,14
+Lamps,0.16666666666666666,6
+Landscapes,0.13432835820895522,1005
+Lanterns,0.0,2
+Last Judgement,1.0,4
+Last Supper,0.75,4
+Latin,1.0,1
+Law,0.0,1
+Leaves,0.0136986301369863,73
+Leda,1.0,1
+Leisure,0.3333333333333333,3
+Lemons,0.2857142857142857,7
+Leopards,0.0,1
+Libraries,0.0,2
+Light bulbs,0.0,1
+Lighthouses,0.5,2
+Lightning,0.0,1
+Lilies,0.4444444444444444,9
+Lions,0.19047619047619047,42
+Lizards,0.5,2
+Lobsters,0.0,3
+London,0.375,8
+Lotuses,0.0,33
+Lovers,0.0,2
+Lutes,0.5555555555555556,18
+Lyres,0.0,4
+Machines,0.0,3
+Madonna,0.5,2
+Madonna and Child,0.5277777777777778,180
+Maitreya,0.16666666666666666,6
+Male Nudes,0.3076923076923077,26
+Mandolins,0.3333333333333333,3
+Manjushri,0.0,13
+Manna,0.0,1
+Maps,0.2857142857142857,7
+Mark Antony,1.0,1
+Markets,0.375,8
+Marriage of the Virgin,0.0,1
+Mars,1.0,1
+Martin Luther,0.0,1
+Mary Magdalene,0.6923076923076923,39
+Masks,0.4444444444444444,9
+Massacres,0.0,1
+Medallions,0.0,2
+Medea,1.0,1
+Medicine,1.0,1
+Men,0.23950617283950618,2025
+Merchants,0.0,3
+Mercury,0.5,2
+Mice,0.0,2
+Microscopes,0.0,1
+Midas,1.0,1
+Military,0.3333333333333333,3
+Minerva,0.3333333333333333,3
+Mirrors,0.30434782608695654,23
+Miter,0.0,1
+Money,1.0,3
+Monkeys,0.04878048780487805,41
+Monks,0.19047619047619047,42
+Monuments,0.3333333333333333,3
+Moon,0.09090909090909091,33
+Morning,0.5,4
+Moses,1.0,5
+Mosques,0.3333333333333333,3
+Mothers,0.2222222222222222,18
+Mountains,0.06699751861042183,403
+Mouths,0.0,1
+Murals,0.0,1
+Muses,0.5,2
+Museums,0.2,5
+Mushrooms,0.0,1
+Music,0.5714285714285714,21
+Musical Instruments,0.25316455696202533,79
+Musicians,0.3333333333333333,45
+Mythical Creatures,0.0,15
+Mythology,0.5,2
+Napoleon I,0.0,2
+Napoleon III,0.0,1
+Narcissus,0.125,8
+Nativity,0.5833333333333334,24
+Nature,0.0,1
+Necklaces,0.0,1
+Needlework,0.2857142857142857,7
+Neptune,1.0,2
+New York City,0.0,11
+Newspapers,0.0,3
+Night,0.2727272727272727,22
+Noah,1.0,1
+Nuns,0.75,4
+Nursing,0.5,22
+Nymphs,0.5,10
+Oaks,0.25,4
+Obelisks,1.0,2
+Oceans,0.0,3
+Oedipus,1.0,1
+Olive Trees,0.4,5
+Opera,0.0,1
+Orchids,0.0,17
+Organs,0.0,1
+Orientalist,0.3902439024390244,41
+Orion,1.0,1
+Orpheus,0.5,2
+Owls,0.14285714285714285,7
+Ox,0.0,15
+Oysters,0.5,2
+Painting,0.14285714285714285,28
+Palaces,0.07692307692307693,26
+Palettes,0.3333333333333333,9
+Palms,0.25,8
+Panthers,0.0,1
+Parables,0.5,2
+Parasols,0.14285714285714285,7
+Paris,0.30303030303030304,33
+Parks,0.4,10
+Parrots,0.3,10
+Party,0.5,4
+Parvati,0.0,3
+Pavilions,0.0,35
+Peaches,0.4666666666666667,15
+Peacocks,0.13793103448275862,29
+Pears,0.5,6
+Peonies,0.0,37
+Performance,0.2,5
+Persephone,0.0,1
+Pheasants,0.0,5
+Philip IV,1.0,2
+Philosophers,0.0,1
+Phoenix,0.0,4
+Phones,0.0,1
+Pianos,0.25,8
+Picnics,1.0,1
+Pigeons,0.0,3
+Pigs,0.3333333333333333,6
+Pilate,0.6666666666666666,3
+Pipes,0.3333333333333333,12
+Pitchers,0.3333333333333333,18
+Planes,0.0,6
+Plants,0.013157894736842105,76
+Playing,0.14285714285714285,14
+Playing Cards,0.07692307692307693,13
+Pluto,1.0,1
+Poetry,0.0,29
+Poets,0.0,24
+Police,0.0,1
+Pomegranates,0.0,6
+Ponds,0.5,8
+Popes,0.6666666666666666,3
+Poppies,0.3,10
+Portraits,0.3068309070548712,893
+Post Offices,0.0,1
+Potatoes,0.0,1
+Praying,0.25,4
+Priests,0.0,1
+Princes,0.2727272727272727,11
+Princesses,0.5,8
+Prisoners,1.0,1
+Prisons,0.5,4
+Processions,0.25,4
+Profiles,0.275,40
+Prostitutes,1.0,3
+Psyche,0.0,1
+Puppets,0.0,7
+Purses,0.0,1
+Putti,0.5625,32
+Pygmalion,0.0,1
+Pyramids,0.5,2
+Queen of Sheba,0.0,1
+Queens,0.18181818181818182,11
+Rabbits,0.08333333333333333,24
+Radha,0.0,29
+Railways,0.14285714285714285,7
+Rain,0.0,4
+Rainbows,0.4,5
+Rams,0.0,1
+Rats,0.0,4
+Reading,0.18421052631578946,38
+Restaurants,0.0,3
+Resurrection,0.6666666666666666,9
+Rings,0.5,2
+Rivers,0.23225806451612904,155
+Roads,0.23333333333333334,30
+Robes,0.0,4
+Rome,0.40425531914893614,47
+Roofs,0.0,5
+Roosters,0.0,20
+Rosaries,0.25,4
+Roses,0.13636363636363635,22
+Rowing,0.0,1
+Ruins,0.2903225806451613,31
+Sadness,0.65,20
+Sailors,0.0,1
+Saint Andrew,0.5,2
+Saint Anne,0.5555555555555556,9
+Saint Anthony,0.5714285714285714,7
+Saint Barbara,0.5,2
+Saint Bartholomew,0.0,1
+Saint Catherine,0.6521739130434783,23
+Saint Christopher,0.5,4
+Saint Francis,0.6666666666666666,27
+Saint George,0.5,4
+Saint Jerome,0.65,20
+Saint John the Baptist,0.6612903225806451,62
+Saint John the Evangelist,0.6486486486486487,37
+Saint Joseph,0.6363636363636364,11
+Saint Lawrence,0.6666666666666666,3
+Saint Leonard,1.0,2
+Saint Lucy,1.0,1
+Saint Mark,0.5,2
+Saint Matthew,0.625,8
+Saint Michael,0.6666666666666666,9
+Saint Nicholas,1.0,1
+Saint Paul,0.5,18
+Saint Peter,0.75,24
+Saint Sebastian,0.0,1
+Saint Ursula,1.0,1
+Saint Zenobius,1.0,1
+Saints,0.48344370860927155,151
+Salome,0.5,6
+Samson,0.6666666666666666,3
+Satire,0.5,2
+Satyrs,0.6,5
+Scales,0.2,5
+Scarves,0.0,1
+Schools,0.0,1
+Science,0.0,1
+Scientists,0.5,2
+Scissors,0.0,1
+Screens,0.0,3
+Scrolls,0.14285714285714285,7
+Sculpture,0.5384615384615384,13
+Seas,0.42857142857142855,7
+Seascapes,0.3548387096774194,31
+Self-portraits,0.25925925925925924,54
+Serpents,0.16666666666666666,6
+Servants,0.42105263157894735,19
+Sewing,0.125,8
+Shakespeare,0.0,2
+Shakyamuni,0.1,10
+Sheep,0.3055555555555556,36
+Shells,0.2857142857142857,7
+Shepherds,0.5,22
+Shields,1.0,4
+Shintō,0.0,1
+Ships,0.34615384615384615,26
+Shiva,0.0,8
+Shoes,0.3333333333333333,3
+Shops,0.0,4
+Sibyl,0.5,2
+Singers,0.6666666666666666,3
+Skating,0.2,5
+Skeletons,0.3333333333333333,9
+Skulls,0.5,24
+Sky,0.42857142857142855,21
+Sleeping,0.5172413793103449,29
+Smoking,0.14285714285714285,28
+Snails,0.5,2
+Snakes,0.35,20
+Snow,0.044444444444444446,45
+Socrates,0.0,1
+Soldiers,0.42105263157894735,57
+Solomon,0.0,2
+Spears,0.0,1
+Spectators,0.125,8
+Sphinx,1.0,1
+Spiders,0.0,1
+Spinning Wheel,0.5,2
+Sports,0.2,5
+Spring,0.16666666666666666,6
+Squirrels,0.0,16
+Stairs,0.0,2
+Stars,0.0,2
+Still Life,0.29411764705882354,170
+Stools,0.25,4
+Storms,0.23076923076923078,13
+Strawberries,0.0,4
+Streams,0.09523809523809523,21
+Street Scene,0.14285714285714285,7
+Streets,0.08823529411764706,34
+Students,0.6666666666666666,3
+Stupas,0.0,9
+Subways,0.0,1
+Suffering,0.75,8
+Summer,0.2,5
+Sun,0.2857142857142857,7
+Sunflowers,0.3333333333333333,6
+Swans,0.3333333333333333,6
+Swimming,0.0,2
+Swords,0.2,50
+Tables,0.08333333333333333,48
+Tablets,1.0,1
+Tags,1.0,1
+Tankards,1.0,1
+Taverns,0.0,1
+Tea,0.2,5
+Tea Ceremony,0.0,1
+Tea Drinking,0.0,2
+Teachers,0.5,2
+Teapots,0.5,2
+Television,0.0,3
+Temples,0.14285714285714285,21
+Tennis,0.0,1
+Tents,0.45454545454545453,11
+Theatre,0.25,4
+Theseus,1.0,1
+Thrones,0.0,4
+Tigers,0.034482758620689655,29
+Tombs,0.3333333333333333,6
+Tools,0.0,1
+Towers,0.4666666666666667,15
+Towns,0.41025641025641024,39
+Toys,0.625,8
+Train Stations,0.0,2
+Trains,0.2222222222222222,9
+Transatlantic Cable,0.0,6
+Trees,0.06744868035190615,341
+Triton,1.0,1
+Trojan War,1.0,1
+Trumpets,0.0,1
+Tulips,1.0,2
+Tunnels,1.0,1
+Turkeys,0.5,2
+Turtles,0.0,9
+Typewriters,0.0,1
+Umbrellas,0.0,6
+Urns,0.0,1
+Vajrapani,0.5,2
+Vases,0.23809523809523808,21
+Vegetables,0.05263157894736842,19
+Venice,0.8888888888888888,18
+Venus,0.7142857142857143,14
+Vessels,0.0,1
+Villages,0.38095238095238093,21
+Vines,0.16666666666666666,6
+Violins,0.45454545454545453,11
+Virgin Mary,0.6144578313253012,166
+Vishnu,0.0,6
+Visitation,1.0,2
+Volcanoes,0.5,4
+Wagons,0.16666666666666666,6
+Warriors,0.0,1
+Wars,0.0,1
+Washing,0.6,5
+Watches,0.0,2
+Water Lilies,1.0,3
+Waterfalls,0.14814814814814814,54
+Watermills,0.0,1
+Waves,0.15789473684210525,19
+Weapons,0.0,4
+Weddings,0.3333333333333333,6
+Wells,1.0,1
+Whales,1.0,1
+Windmills,0.14285714285714285,7
+Windows,0.23076923076923078,13
+Wine,0.0,2
+Winter,0.2962962962962963,27
+Witches,1.0,1
+Wolves,0.6666666666666666,3
+Women,0.2554054054054054,1480
+Working,0.3023255813953488,43
+World War I,0.0,1
+Wreaths,0.5,2
+Wrestling,0.0,3
+Writing,0.3333333333333333,15
+Writing Implements,0.0,2
+Zodiac,0.0,2
