@@ -1,10 +1,8 @@
-data/raw/
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
 .env
 
-data/viz/*.csv
-data/viz/.gitkeep
+data/raw/MetObjects.csv
 data/raw/MetObjects.csv
