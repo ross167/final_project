@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collection Display Likelihood Assessor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0906;
+      --surface: #111009;
+      --border: #2a2620;
+      --border-light: #3a342e;
+      --met: #c8956c;
+      --louvre: #7ea8c4;
+      --gold: #c9a84c;
+      --gold-dim: rgba(201,168,76,0.15);
+      --text: #e8e0d0;
+      --text-dim: #8a7e6e;
+      --text-faint: #4a4438;
+      --green: #7eb88a;
+      --red: #c47070;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      font-family: 'Montserrat', sans-serif;
+      color: var(--text);
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+      background-image:
+        radial-gradient(ellipse 60% 40% at 50% 0%, rgba(201,168,76,0.04) 0%, transparent 70%);
+    }
+
+    .wrap { max-width: 660px; margin: 0 auto; }
+
+    /* Header */
+    .header { text-align: center; margin-bottom: 48px; }
+    .header-eyebrow {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+    }
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 5vw, 42px); font-weight: 300;
+      letter-spacing: 0.04em; color: var(--text);
+      line-height: 1.2; margin-bottom: 12px;
+    }
+    .header h1 em { font-style: italic; color: var(--gold); }
+    .header p {
+      font-size: 12px; color: var(--text-dim); line-height: 1.7;
+      max-width: 420px; margin: 0 auto 24px;
+    }
+    .baselines {
+      display: inline-flex; gap: 28px;
+      background: rgba(201,168,76,0.05);
+      border: 1px solid rgba(201,168,76,0.15);
+      border-radius: 4px; padding: 12px 24px;
+    }
+    .baseline { text-align: center; }
+    .baseline-val { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 400; }
+    .baseline-val.met { color: var(--met); }
+    .baseline-val.louvre { color: var(--louvre); }
+    .baseline-label { font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-top: 2px; }
+
+    /* Progress */
+    .progress-wrap { margin-bottom: 36px; }
+    .progress-track { height: 1px; background: var(--border); margin-bottom: 10px; }
+    .progress-fill { height: 1px; background: var(--gold); transition: width 0.5s ease; }
+    .progress-dots { display: flex; gap: 8px; justify-content: center; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border-light); transition: all 0.3s; }
+    .dot.done { background: var(--gold); opacity: 0.5; }
+    .dot.active { background: var(--gold); width: 18px; border-radius: 3px; }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      padding: 36px 32px;
+      position: relative;
+    }
+    .card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      opacity: 0.4;
+    }
+
+    /* Question */
+    .q-label {
+      font-size: 9px; font-weight: 600; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--gold);
+      margin-bottom: 8px;
+    }
+    .q-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px; font-weight: 400; color: var(--text);
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .q-hint {
+      font-size: 11px; color: var(--text-dim); line-height: 1.65;
+      margin-bottom: 28px; padding-left: 12px;
+      border-left: 2px solid var(--border-light);
+    }
+
+    /* Options */
+    .options { display: flex; flex-direction: column; gap: 8px; margin-bottom: 28px; }
+    .option {
+      display: flex; align-items: flex-start; gap: 14px;
+      padding: 14px 16px; cursor: pointer;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      transition: all 0.2s; background: transparent;
+      text-align: left; width: 100%;
+    }
+    .option:hover { border-color: var(--border-light); background: rgba(201,168,76,0.03); }
+    .option.selected { border-color: var(--gold); background: var(--gold-dim); }
+    .option-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 15px; color: var(--gold); min-width: 18px;
+      padding-top: 1px; opacity: 0.7;
+    }
+    .option.selected .option-num { opacity: 1; }
+    .option-body {}
+    .option-label { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 2px; }
+    .option-desc { font-size: 11px; color: var(--text-dim); }
+    .option.selected .option-label { color: var(--gold); }
+
+    /* Buttons */
+    .btn-row { display: flex; gap: 12px; }
+    .btn-primary {
+      flex: 1; background: var(--gold);
+      border: none; border-radius: 1px;
+      color: #0a0906; font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.15em;
+      text-transform: uppercase; padding: 14px;
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.85; }
+    .btn-primary:disabled { opacity: 0.3; cursor: not-allowed; }
+    .btn-secondary {
+      padding: 14px 20px; background: transparent;
+      border: 1px solid var(--border-light); border-radius: 1px;
+      color: var(--text-dim); font-family: 'Montserrat', sans-serif;
+      font-size: 11px; font-weight: 500; letter-spacing: 0.1em;
+      cursor: pointer; transition: all 0.2s;
+    }
+    .btn-secondary:hover { border-color: var(--text-dim); color: var(--text); }
+
+    /* ── Results ── */
+    .result-card { background: var(--surface); border: 1px solid var(--border); border-radius: 2px; position: relative; overflow: hidden; }
+    .result-card::before { content:''; position:absolute; top:0;left:0;right:0;height:1px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0.4; }
+
+    .result-header { text-align: center; padding: 40px 32px 32px; border-bottom: 1px solid var(--border); }
+    .verdict-badge {
+      display: inline-block; padding: 8px 20px;
+      border-radius: 2px; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px;
+    }
+    .verdict-strong { background: rgba(126,184,138,0.12); border: 1px solid rgba(126,184,138,0.4); color: #7eb88a; }
+    .verdict-likely { background: rgba(126,168,196,0.12); border: 1px solid rgba(126,168,196,0.4); color: #7ea8c4; }
+    .verdict-borderline { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.35); color: var(--gold); }
+    .verdict-storage { background: rgba(196,112,112,0.1); border: 1px solid rgba(196,112,112,0.35); color: #c47070; }
+
+    .result-title { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-weight: 300; color: var(--text-dim); letter-spacing: 0.1em; }
+
+    .scores-section { padding: 32px; border-bottom: 1px solid var(--border); }
+    .scores-title { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 24px; }
+
+    .score-row { margin-bottom: 20px; }
+    .score-meta { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+    .score-name { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+    .score-name.met { color: var(--met); }
+    .score-name.louvre { color: var(--louvre); }
+    .score-num { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; }
+    .score-num.met { color: var(--met); }
+    .score-num.louvre { color: var(--louvre); }
+    .bar-track { height: 6px; background: var(--border); border-radius: 0; overflow: hidden; margin-bottom: 6px; }
+    .bar-fill { height: 100%; border-radius: 0; transition: width 1.4s cubic-bezier(0.16,1,0.3,1); width: 0; }
+    .bar-fill.met { background: linear-gradient(90deg, rgba(200,149,108,0.5), var(--met)); }
+    .bar-fill.louvre { background: linear-gradient(90deg, rgba(126,168,196,0.5), var(--louvre)); }
+    .score-diff { font-size: 10px; color: var(--text-dim); }
+    .diff-pos { color: var(--green); }
+    .diff-neg { color: var(--red); }
+
+    .avg-section { padding: 24px 32px; border-bottom: 1px solid var(--border); background: rgba(201,168,76,0.02); }
+    .avg-title { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .avg-note { font-size: 10px; color: var(--text-faint); margin-top: 10px; font-style: italic; }
+
+    .inputs-section { padding: 28px 32px; border-bottom: 1px solid var(--border); }
+    .inputs-title { font-size: 9px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+    .input-row { display: flex; justify-content: space-between; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--border); }
+    .input-row:last-child { border-bottom: none; }
+    .input-key { font-size: 10px; color: var(--text-dim); letter-spacing: 0.05em; }
+    .input-val { font-size: 11px; color: var(--text); font-weight: 500; text-align: right; max-width: 60%; }
+
+    .footnote-section { padding: 24px 32px; }
+    .footnote { font-size: 10px; color: var(--text-faint); line-height: 1.7; font-style: italic; }
+
+    .result-actions { padding: 0 32px 32px; }
+
+    /* Intro */
+    #intro-screen .card { text-align: center; padding: 48px 40px; }
+    #intro-screen .intro-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px; color: var(--gold); opacity: 0.4;
+      margin-bottom: 20px; display: block;
+    }
+    #intro-screen h2 { font-family:'Cormorant Garamond',serif; font-size:22px; font-weight:300; margin-bottom:12px; letter-spacing:0.05em; }
+    #intro-screen p { font-size:12px; color:var(--text-dim); line-height:1.7; margin-bottom:28px; max-width:440px; margin-left:auto; margin-right:auto; }
+    .intro-stats { display:flex; justify-content:center; gap:32px; margin-bottom:32px; padding:20px; background:rgba(201,168,76,0.04); border:1px solid rgba(201,168,76,0.12); border-radius:2px; }
+    .stat-item { text-align:center; }
+    .stat-val { font-family:'Cormorant Garamond',serif; font-size:28px; font-weight:300; }
+    .stat-val.met { color:var(--met); }
+    .stat-val.louvre { color:var(--louvre); }
+    .stat-lbl { font-size:9px; letter-spacing:0.18em; text-transform:uppercase; color:var(--text-dim); margin-top:3px; }
+    .divider { height:1px; background:linear-gradient(90deg,transparent,var(--border-light),transparent); margin:20px 0; }
+
+    @media(max-width:480px){
+      .card{padding:24px 18px;}
+      .scores-section,.inputs-section,.avg-section,.footnote-section,.result-actions{padding-left:20px;padding-right:20px;}
+      .intro-stats{gap:20px;}
+      .baselines{gap:16px;}
+    }
+  </style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="header">
+    <div class="header-eyebrow">Collection Analysis Tool</div>
+    <h1>Display Likelihood<br/><em>Assessor</em></h1>
+    <p>Heuristic estimates derived from statistical patterns in the Met and Louvre collection datasets. Not a guarantee of display.</p>
+  </div>
+
+  <!-- Intro Screen -->
+  <div id="intro-screen">
+    <div class="card">
+      <span class="intro-icon">𝄡</span>
+      <h2>Metropolitan Museum &amp; the Louvre</h2>
+      <p>This tool assesses the likelihood of a painting being publicly displayed, based on statistical patterns in each institution's collection data across acquisition type, period, medium, origin, subject, size, and condition.</p>
+      <div class="intro-stats">
+        <div class="stat-item">
+          <div class="stat-val met">15.3%</div>
+          <div class="stat-lbl">Met baseline<br/>display rate</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-val louvre">26.7%</div>
+          <div class="stat-lbl">Louvre baseline<br/>display rate</div>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <p style="font-size:11px;color:var(--text-faint);margin-bottom:24px;">Seven questions · No data stored · Results calculated locally</p>
+      <button class="btn-primary" onclick="startAssessment()">Begin Assessment</button>
+    </div>
+  </div>
+
+  <!-- Question Screen -->
+  <div id="question-screen" style="display:none;">
+    <div class="progress-wrap">
+      <div class="progress-track"><div class="progress-fill" id="progress-bar"></div></div>
+      <div class="progress-dots" id="progress-dots"></div>
+    </div>
+    <div class="card">
+      <div class="q-label" id="q-label"></div>
+      <div class="q-title" id="q-title"></div>
+      <div class="q-hint" id="q-hint"></div>
+      <div class="options" id="options-list"></div>
+      <div class="btn-row">
+        <button class="btn-secondary" id="btn-back" onclick="goBack()">Back</button>
+        <button class="btn-primary" id="btn-next" onclick="goNext()" disabled>Continue</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Results Screen -->
+  <div id="results-screen" style="display:none;"></div>
+
+</div>
+
+<script>
+const MET_BASE    = 15.3;
+const LOUVRE_BASE = 26.7;
+
+const STEPS = [
+  {
+    id: "acquisition", label: "Acquisition Type",
+    question: "How was the painting acquired?",
+    hint: "Acquisition method is the strongest single predictor of display status at the Met.",
+    options: [
+      { val:"gift",     label:"Gift or Bequest",   desc:"Donated by a collector or estate" },
+      { val:"purchase", label:"Purchase",           desc:"Bought by the institution" },
+      { val:"transfer", label:"Transfer",           desc:"Moved from another collection" },
+      { val:"other",    label:"Other / Unknown",    desc:"Commission, exchange, or undocumented" },
+    ],
+    met_w:    { gift:0.59, purchase:1.10, transfer:0.95, other:2.29 },
+    louvre_w: { gift:0.88, purchase:1.12, transfer:0.95, other:1.05 },
+  },
+  {
+    id: "period", label: "Period",
+    question: "When was the painting created?",
+    hint: "Both institutions skew toward historical European works in their display galleries.",
+    options: [
+      { val:"medieval",     label:"Medieval",                desc:"Before 1400" },
+      { val:"renaissance",  label:"Renaissance",             desc:"1400–1600" },
+      { val:"baroque",      label:"Baroque / Old Masters",   desc:"1600–1750" },
+      { val:"neoclassical", label:"Neoclassical / Romantic", desc:"1750–1850" },
+      { val:"modern",       label:"Modern",                  desc:"1850–1950" },
+      { val:"contemporary", label:"Contemporary",            desc:"Post-1950" },
+    ],
+    met_w:    { medieval:1.10, renaissance:1.40, baroque:1.35, neoclassical:1.20, modern:1.00, contemporary:0.65 },
+    louvre_w: { medieval:1.20, renaissance:1.55, baroque:1.45, neoclassical:1.30, modern:0.60, contemporary:0.30 },
+  },
+  {
+    id: "medium", label: "Medium & Surface",
+    question: "What is the medium and surface?",
+    hint: "Stable media on durable surfaces are more practical to display long-term.",
+    options: [
+      { val:"oil_canvas",  label:"Oil on Canvas",              desc:"Most common display format" },
+      { val:"oil_panel",   label:"Oil or Tempera on Panel",    desc:"Older, more fragile" },
+      { val:"watercolour", label:"Watercolour / Works on Paper",desc:"Light-sensitive; often rotated" },
+      { val:"fresco",      label:"Fresco or Mural-derived",    desc:"Rare; usually purpose-built display" },
+      { val:"other_med",   label:"Mixed or Other",             desc:"Pastel, gouache, encaustic, etc." },
+    ],
+    met_w:    { oil_canvas:1.15, oil_panel:1.05, watercolour:0.70, fresco:1.20, other_med:0.85 },
+    louvre_w: { oil_canvas:1.10, oil_panel:1.20, watercolour:0.65, fresco:1.25, other_med:0.80 },
+  },
+  {
+    id: "origin", label: "Geographic Origin",
+    question: "Where does the painting originate?",
+    hint: "Both institutions built their core display collections around Western European works.",
+    options: [
+      { val:"french",    label:"French",             desc:"Core of the Louvre's mission" },
+      { val:"italian",   label:"Italian",            desc:"Prestige works at both institutions" },
+      { val:"dutch_flem",label:"Dutch or Flemish",   desc:"Strong representation at both" },
+      { val:"other_eur", label:"Other European",     desc:"Spanish, German, British, etc." },
+      { val:"american",  label:"North American",     desc:"Core of the Met's modern holdings" },
+      { val:"other",     label:"Asian, African, Other",desc:"Specialist galleries; variable display" },
+    ],
+    met_w:    { french:1.10, italian:1.20, dutch_flem:1.15, other_eur:1.05, american:1.20, other:0.80 },
+    louvre_w: { french:1.40, italian:1.30, dutch_flem:1.15, other_eur:1.05, american:0.50, other:0.65 },
+  },
+  {
+    id: "subject", label: "Subject Matter",
+    question: "What is the primary subject of the painting?",
+    hint: "Narrative and figurative works tend to attract more visitor engagement and curatorial preference.",
+    options: [
+      { val:"religious",  label:"Religious or Mythological",  desc:"Altarpieces, biblical scenes, gods" },
+      { val:"portrait",   label:"Portrait",                   desc:"Individual or group likeness" },
+      { val:"landscape",  label:"Landscape or Seascape",      desc:"Natural or urban scenery" },
+      { val:"genre",      label:"Genre / Everyday Life",      desc:"Domestic scenes, still life" },
+      { val:"historical", label:"Historical or Allegorical",  desc:"Narrative historical scenes" },
+      { val:"abstract",   label:"Abstract or Decorative",     desc:"Non-representational works" },
+    ],
+    met_w:    { religious:1.15, portrait:1.20, landscape:1.05, genre:1.10, historical:1.15, abstract:0.90 },
+    louvre_w: { religious:1.30, portrait:1.10, landscape:0.95, genre:1.05, historical:1.25, abstract:0.55 },
+  },
+  {
+    id: "size", label: "Physical Size",
+    question: "How large is the painting?",
+    hint: "Gallery space is finite. The Met averages 67% more space per displayed painting than the Louvre.",
+    options: [
+      { val:"small",     label:"Small",     desc:"Under 0.5 m²  —  miniature or cabinet painting" },
+      { val:"medium",    label:"Medium",    desc:"0.5–2 m²  —  typical gallery painting" },
+      { val:"large",     label:"Large",     desc:"2–5 m²  —  salon-scale" },
+      { val:"very_large",label:"Very Large",desc:"Over 5 m²  —  monumental" },
+    ],
+    met_w:    { small:0.90, medium:1.10, large:1.05, very_large:0.85 },
+    louvre_w: { small:0.95, medium:1.05, large:1.15, very_large:1.10 },
+  },
+  {
+    id: "condition", label: "Condition",
+    question: "What is the painting's current condition?",
+    hint: "Works in poor condition are prioritised for conservation storage over display.",
+    options: [
+      { val:"excellent",label:"Excellent",desc:"Ready to display immediately" },
+      { val:"good",     label:"Good",     desc:"Minor issues; display-ready" },
+      { val:"fair",     label:"Fair",     desc:"Stable but requires monitoring" },
+      { val:"poor",     label:"Poor",     desc:"Conservation priority; storage recommended" },
+    ],
+    met_w:    { excellent:1.20, good:1.05, fair:0.80, poor:0.35 },
+    louvre_w: { excellent:1.20, good:1.05, fair:0.80, poor:0.35 },
+  },
+];
+
+let currentStep = 0;
+let answers = {};
+let selectedVal = null;
+
+function startAssessment() {
+  document.getElementById('intro-screen').style.display = 'none';
+  document.getElementById('question-screen').style.display = 'block';
+  currentStep = 0;
+  answers = {};
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const step = STEPS[currentStep];
+  selectedVal = answers[step.id] || null;
+
+  document.getElementById('q-label').textContent = `${step.label}  ·  ${currentStep + 1} of ${STEPS.length}`;
+  document.getElementById('q-title').textContent = step.question;
+  document.getElementById('q-hint').textContent = step.hint;
+
+  // Progress
+  const pct = (currentStep / STEPS.length) * 100;
+  document.getElementById('progress-bar').style.width = pct + '%';
+  const dots = document.getElementById('progress-dots');
+  dots.innerHTML = STEPS.map((_, i) =>
+    `<div class="dot ${i < currentStep ? 'done' : i === currentStep ? 'active' : ''}"></div>`
+  ).join('');
+
+  // Options
+  const list = document.getElementById('options-list');
+  list.innerHTML = step.options.map((opt, i) => `
+    <button class="option ${selectedVal === opt.val ? 'selected' : ''}"
+            onclick="selectOption('${opt.val}')">
+      <span class="option-num">${i + 1}</span>
+      <span class="option-body">
+        <span class="option-label">${opt.label}</span>
+        <span class="option-desc">${opt.desc}</span>
+      </span>
+    </button>
+  `).join('');
+
+  // Back button
+  document.getElementById('btn-back').style.display = currentStep === 0 ? 'none' : '';
+  document.getElementById('btn-next').disabled = !selectedVal;
+  document.getElementById('btn-next').textContent = currentStep === STEPS.length - 1 ? 'View Results' : 'Continue';
+}
+
+function selectOption(val) {
+  selectedVal = val;
+  document.querySelectorAll('.option').forEach(el => el.classList.remove('selected'));
+  event.currentTarget.classList.add('selected');
+  document.getElementById('btn-next').disabled = false;
+}
+
+function goNext() {
+  if (!selectedVal) return;
+  answers[STEPS[currentStep].id] = selectedVal;
+  if (currentStep < STEPS.length - 1) {
+    currentStep++;
+    selectedVal = answers[STEPS[currentStep].id] || null;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    showResults();
+  }
+}
+
+function goBack() {
+  if (currentStep > 0) {
+    answers[STEPS[currentStep].id] = selectedVal;
+    currentStep--;
+    selectedVal = answers[STEPS[currentStep].id] || null;
+    renderQuestion();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+}
+
+function calcScore(base, weightKey) {
+  let score = base;
+  STEPS.forEach(step => {
+    const val = answers[step.id];
+    if (val && step[weightKey]) {
+      score *= (step[weightKey][val] || 1.0);
+    }
+  });
+  return Math.max(0.5, Math.min(97.0, score));
+}
+
+function verdictClass(avg) {
+  if (avg >= 55) return { cls:'verdict-strong',   text:'Strong Display Candidate' };
+  if (avg >= 35) return { cls:'verdict-likely',   text:'Likely Display Candidate' };
+  if (avg >= 20) return { cls:'verdict-borderline',text:'Borderline — Context Dependent' };
+  return           { cls:'verdict-storage',  text:'Storage Recommended' };
+}
+
+function diffHtml(score, base) {
+  const d = score - base;
+  const sign = d >= 0 ? '+' : '';
+  const cls = d >= 0 ? 'diff-pos' : 'diff-neg';
+  return `<span class="${cls}">${sign}${d.toFixed(1)} pp</span> <span style="color:var(--text-faint)">vs avg ${base}%</span>`;
+}
+
+function showResults() {
+  document.getElementById('question-screen').style.display = 'none';
+  const rs = document.getElementById('results-screen');
+  rs.style.display = 'block';
+
+  const met    = calcScore(MET_BASE,    'met_w');
+  const louvre = calcScore(LOUVRE_BASE, 'louvre_w');
+  const avg    = (met + louvre) / 2;
+  const vc     = verdictClass(avg);
+
+  // Build summary rows
+  const inputRows = STEPS.map(step => {
+    const val = answers[step.id];
+    const opt = step.options.find(o => o.val === val);
+    return `<div class="input-row">
+      <span class="input-key">${step.label}</span>
+      <span class="input-val">${opt ? opt.label : '—'}</span>
+    </div>`;
+  }).join('');
+
+  rs.innerHTML = `
+    <div class="result-card">
+      <div class="result-header">
+        <div class="verdict-badge ${vc.cls}">${vc.text}</div>
+        <div class="result-title">Collection Display Likelihood Assessment</div>
+      </div>
+
+      <div class="scores-section">
+        <div class="scores-title">Display Likelihood by Institution</div>
+
+        <div class="score-row">
+          <div class="score-meta">
+            <span class="score-name met">The Metropolitan Museum of Art</span>
+            <span class="score-num met" id="met-num">0%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill met" id="met-bar"></div></div>
+          <div class="score-diff">${diffHtml(met, MET_BASE)}</div>
+        </div>
+
+        <div class="score-row" style="margin-bottom:0">
+          <div class="score-meta">
+            <span class="score-name louvre">The Louvre</span>
+            <span class="score-num louvre" id="louvre-num">0%</span>
+          </div>
+          <div class="bar-track"><div class="bar-fill louvre" id="louvre-bar"></div></div>
+          <div class="score-diff">${diffHtml(louvre, LOUVRE_BASE)}</div>
+        </div>
+      </div>
+
+      <div class="avg-section">
+        <div class="avg-title">vs. Collection Average</div>
+        <div class="score-diff" style="font-size:11px;line-height:2">
+          Met average display rate: <strong style="color:var(--met)">${MET_BASE}%</strong>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          This painting: <strong style="color:var(--met)">${met.toFixed(1)}%</strong>
+          &nbsp;&nbsp;
+          ${diffHtml(met, MET_BASE)}
+        </div>
+        <div class="score-diff" style="font-size:11px;line-height:2;margin-top:4px">
+          Louvre average display rate: <strong style="color:var(--louvre)">${LOUVRE_BASE}%</strong>
+          &nbsp;&nbsp;·&nbsp;&nbsp;
+          This painting: <strong style="color:var(--louvre)">${louvre.toFixed(1)}%</strong>
+          &nbsp;&nbsp;
+          ${diffHtml(louvre, LOUVRE_BASE)}
+        </div>
+        <div class="avg-note">pp = percentage points difference from each museum's overall display rate</div>
+      </div>
+
+      <div class="inputs-section">
+        <div class="inputs-title">Assessment Inputs</div>
+        ${inputRows}
+      </div>
+
+      <div class="footnote-section">
+        <div class="footnote">Scores are heuristic estimates derived from statistical patterns in the Met and Louvre collection datasets. They reflect population-level display tendencies, not institutional guarantees. Curatorial judgement, loan status, and gallery scheduling will always be additional factors.</div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn-primary" onclick="restartAssessment()">Assess Another Painting</button>
+      </div>
+    </div>
+  `;
+
+  // Animate bars
+  setTimeout(() => {
+    document.getElementById('met-bar').style.width    = met    + '%';
+    document.getElementById('louvre-bar').style.width = louvre + '%';
+    animateNum('met-num',    met,    1200);
+    animateNum('louvre-num', louvre, 1200);
+  }, 100);
+
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function animateNum(id, target, duration) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  let start = null;
+  function step(ts) {
+    if (!start) start = ts;
+    const progress = Math.min((ts - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - progress, 4);
+    el.textContent = (target * ease).toFixed(1) + '%';
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+function restartAssessment() {
+  document.getElementById('results-screen').style.display = 'none';
+  document.getElementById('intro-screen').style.display = 'block';
+  currentStep = 0;
+  answers = {};
+  selectedVal = null;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
