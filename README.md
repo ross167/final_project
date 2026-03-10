@@ -4,7 +4,11 @@
 
 This project uses data from The Met Museum's open-access collection to investigate which paintings end up on gallery walls and which remain in storage. It combines data collection via API, data cleaning and feature engineering, exploratory data analysis using SQL, classification modelling, and hypothesis testing to identify the key drivers of display likelihood across 9,005 paintings.
 
-It was completed as the final project for the Ironhack Data Analytics Bootcamp (Jan-March 2026) and presented at the end of the course. It was a genuinely enjoyable project to work on, and the hope is that the findings and tools here are useful to anyone working in collection management or curatorial planning who wants to understand what patterns drive display decisions at scale.
+It was completed as the final project for the Ironhack Data Analytics Bootcamp (Jan-March 2026) and presented at the end of the course. 
+
+The presentation video can be viewed at the following location - https://www.youtube.com/watch?v=cOMRWIYuxFg 
+
+It was a genuinely enjoyable project to work on, and the hope is that the findings and tools here are useful to anyone working in collection management or curatorial planning who wants to understand what patterns drive display decisions at scale.
 
 ---
 
