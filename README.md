@@ -110,6 +110,8 @@ python painting_assessor.py
 
 The tool asks seven questions covering acquisition type, period, medium, geographic origin, subject matter, size, and condition. It then produces a display likelihood score for each institution alongside a comparison to their respective collection averages. It is a heuristic tool derived from statistical patterns in the collection data rather than a guarantee of any curatorial decision, but it is a useful way to explore how different characteristics interact and to make the findings tangible.
 
+An online version of the tool also exists at https://rosswilson.consulting/paintings 
+
 ---
 
 ##Hypotheses Tested
