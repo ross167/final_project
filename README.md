@@ -6,7 +6,7 @@ This project uses data from The Met Museum's open-access collection to investiga
 
 It was completed as the final project for the Ironhack Data Analytics Bootcamp (Jan-March 2026) and presented at the end of the course. 
 
-The presentation video can be viewed at the following location - https://www.youtube.com/watch?v=cOMRWIYuxFg 
+The presentation video can be viewed at the following location - https://youtu.be/o0XewIxUDuo  
 
 It was a genuinely enjoyable project to work on, and the hope is that the findings and tools here are useful to anyone working in collection management or curatorial planning who wants to understand what patterns drive display decisions at scale.
 
